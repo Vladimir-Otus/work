@@ -16,7 +16,7 @@ mysql -u root -e "CREATE USER 'wp'@'%' IDENTIFIED BY 'password';";
 mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'wp'@'%';";
 
 ### качаем wp-config
-sudo https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Back1/WordPress.php
+sudo wget https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Back1/WordPress.php
 
 ### копируем его в папку wordpress
 sudo cp wp-config.php /var/www/html/;
