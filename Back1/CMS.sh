@@ -9,7 +9,7 @@ sudo tar -xzvf wordpress-6.7.1-ru_RU.tar.gz;
 sudo cp -r wordpress/* /var/www/html/;
 
 # Создаем базу для WordPress
-mysql -u root -e "CREATE DATABASE WP;";
+mysql -u root -e "CREATE DATABASE vt;";
 
 # Создаем пользователя и даем права
 mysql -u root -e "CREATE USER 'vt'@'%' IDENTIFIED BY 'vt';";
