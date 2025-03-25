@@ -1,6 +1,21 @@
 # Установка Prometheus
 sudo apt update
 sudo apt install prometheus -y
+
+# Скачивание конфигурации prometheus.yml
+echo "Скачивание конфигурации prometheus.yml..."
+sudo wget -O /etc/prometheus/prometheus.yml https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Monitor/prometheus.yml
+
+# Проверка, что файл скачан
+if [ -f "/etc/prometheus/prometheus.yml" ]; then
+    echo "Конфигурация prometheus.yml успешно загружена."
+    # Перезапуск Prometheus для применения новой конфигурации
+    sudo systemctl restart prometheus
+else
+    echo "Ошибка: не удалось загрузить конфигурацию prometheus.yml"
+    exit 1
+fi
+
 sudo systemctl enable prometheus
 sudo systemctl start prometheus
 
