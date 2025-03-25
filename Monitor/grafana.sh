@@ -21,7 +21,7 @@ sudo systemctl start prometheus
 
 # Установка Grafana OSS из папки /home/vt/
 sudo apt-get install -y adduser libfontconfig1 musl
-sudo dpkg -i /home/vt/grafana_11.4.0_arm64.deb
+sudo dpkg -i /home/vt/grafana_11.4.0_amd64.deb
 
 # Рестарт демона и запуск сервера Grafana
 sleep 3
