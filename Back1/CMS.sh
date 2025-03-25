@@ -12,8 +12,8 @@ sudo cp -r wordpress/* /var/www/html/;
 mysql -u root -e "CREATE DATABASE WP;";
 
 # Создаем пользователя и даем права
-mysql -u root -e "CREATE USER 'wp'@'%' IDENTIFIED BY 'password';";
-mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'wp'@'%';";
+mysql -u root -e "CREATE USER 'vt'@'%' IDENTIFIED BY 'vt';";
+mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'vt'@'%';";
 
 # Скачиваем wp-config
 sudo wget https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Back1/wp-config.php
