@@ -9,12 +9,12 @@ tar -xzvf wordpress-6.7.1-ru_RU.tar.gz
 sudo cp -r wordpress/* /var/www/html/
 
 # Создаем базу для WordPress
-sudo mysql -e "CREATE DATABASE vt;"
+sudo mysql -u root -e "CREATE DATABASE IF NOT EXISTS vt;"
 
 # Создаем пользователя и даем права
-sudo mysql -e "CREATE USER 'vt'@'localhost' IDENTIFIED BY 'vt';"
-sudo mysql -e "GRANT ALL PRIVILEGES ON vt.* TO 'vt'@'localhost';"
-sudo mysql -e "FLUSH PRIVILEGES;"
+sudo mysql -u root -e "CREATE USER IF NOT EXISTS 'vt'@'%' IDENTIFIED BY 'vt';"
+sudo mysql -u root -e "GRANT ALL PRIVILEGES ON vt.* TO 'vt'@'%';"
+sudo mysql -u root -e "FLUSH PRIVILEGES;"
 
 # Скачиваем wp-config
 wget https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Back1/wp-config.php
