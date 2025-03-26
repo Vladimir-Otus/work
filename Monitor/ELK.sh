@@ -13,7 +13,7 @@ sudo apt-get install -f -y
 
 # Настройка лимитов памяти для Elasticsearch
 sudo mkdir -p /etc/elasticsearch/jvm.options.d
-echo -e "-Xms1g\n-Xmx3g" | sudo tee /etc/elasticsearch/jvm.options.d/jvm.options >/dev/null
+echo "-Xms1g\n-Xmx3g" | sudo tee /etc/elasticsearch/jvm.options.d/jvm.options >/dev/null
 
 # Скачивание конфигов
 declare -A config_urls=(
