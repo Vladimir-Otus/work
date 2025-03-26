@@ -45,7 +45,7 @@ replace_config() {
 replace_config "https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Front/filebeat.yml" "/etc/filebeat/filebeat.yml"
 replace_config "https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Monitor/kibana.yml" "/etc/kibana/kibana.yml"
 replace_config "https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Monitor/logstash.yml" "/etc/logstash/logstash.yml"
-replace_config "https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Monitor/logstash-nginx.conf" "/etc/logstash/conf.d/logstash-nginx-ex.conf"  # Измененное имя файла
+replace_config "https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Monitor/logstash-nginx-ex.conf" "/etc/logstash/conf.d/logstash-nginx-ex.conf"  # Измененное имя файла
 
 # Установка правильных прав на файлы
 sudo chown kibana:kibana /etc/kibana/kibana.yml
