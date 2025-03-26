@@ -5,7 +5,7 @@ sudo apt update
 sudo apt install -y wget
 
 # Установка компонентов (предполагаем, что .deb файлы уже скачаны)
-sudo dpkg -i kibana.deb logstash.deb filebeat.deb
+sudo dpkg -i kibana_8.9.1_amd64-224190-f7ebba.deb logstash_8.9.1_amd64-224190-11b1b0.deb filebeat_8.9.1_amd64-224190-bc3f59.deb
 sudo apt-get install -f -y
 
 # Функция для замены конфигурационных файлов
