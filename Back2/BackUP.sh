@@ -2,7 +2,7 @@
 # Скрипт backup BD table
 
 USER="root"
-OUTPUT_DIR="/home/vt/DB/DB"
+OUTPUT_DIR="/home/vt"
 
 # Проверка подключения к MySQL
 if ! mysql -u"$USER" -e "SHOW DATABASES;" > /dev/null; then
