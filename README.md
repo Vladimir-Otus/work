@@ -57,7 +57,6 @@ sudo chmod +x replica.sh
 sudo ./replica.sh
 5-	Проверка таблиц
 sudo mysql -u root -e "show databases;"
-
 6-	Проверить работу BackUP
 sudo wget https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Back2/BackUP.sh
 sudo chmod +x BackUP.sh
