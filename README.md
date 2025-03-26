@@ -12,7 +12,9 @@ ________________________________________________________________
 sudo wget https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Front/front-script.sh
 sudo chmod +x front-script.sh
 sudo ./front-script.sh
+
 Проверяем работу дефолтной страницы - http://192.168.8.130
+
 В скрипте также устанавливается Prometheus
 
 2-	Устанавливаем FileBeat, который заранее был скопирован с помощью WinSCP в текущую папку:
