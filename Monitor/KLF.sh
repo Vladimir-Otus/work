@@ -4,8 +4,10 @@
 sudo apt update
 sudo apt install -y wget
 
-# Установка компонентов (предполагаем, что .deb файлы уже скачаны)
-sudo dpkg -i kibana_8.9.1_amd64-224190-f7ebba.deb logstash_8.9.1_amd64-224190-11b1b0.deb filebeat_8.9.1_amd64-224190-bc3f59.deb
+# Установка компонентов из /home/vt/
+sudo dpkg -i /home/vt/kibana_8.9.1_amd64-224190-f7ebba.deb \
+             /home/vt/logstash_8.9.1_amd64-224190-11b1b0.deb \
+             /home/vt/filebeat_8.9.1_amd64-224190-bc3f59.deb
 sudo apt-get install -f -y
 
 # Функция для замены конфигурационных файлов
@@ -45,12 +47,12 @@ replace_config() {
 replace_config "https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Front/filebeat.yml" "/etc/filebeat/filebeat.yml"
 replace_config "https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Monitor/kibana.yml" "/etc/kibana/kibana.yml"
 replace_config "https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Monitor/logstash.yml" "/etc/logstash/logstash.yml"
-replace_config "https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Monitor/logstash-nginx-ex.conf" "/etc/logstash/conf.d/logstash-nginx-ex.conf"  # Измененное имя файла
+replace_config "https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Monitor/logstash-nginx-ex.conf" "/etc/logstash/conf.d/logstash-nginx-ex.conf"
 
 # Установка правильных прав на файлы
 sudo chown kibana:kibana /etc/kibana/kibana.yml
 sudo chown logstash:logstash /etc/logstash/logstash.yml
-sudo chown logstash:logstash /etc/logstash/conf.d/logstash-nginx-ex.conf  # Обновленное имя файла
+sudo chown logstash:logstash /etc/logstash/conf.d/logstash-nginx-ex.conf
 sudo chown root:root /etc/filebeat/filebeat.yml
 
 # Запуск сервисов
