@@ -17,9 +17,9 @@ sudo mkdir -p /etc/elasticsearch/jvm.options.d
 echo -e "-Xms1g\n-Xmx1g" | sudo tee /etc/elasticsearch/jvm.options.d/jvm.options > /dev/null
 
 # скачиваем конфиги, если их нет
-if [ ! -f elasticsearch.yml ]; then
-    sudo wget https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Monitor/elasticsearch.yml
-fi
+#if [ ! -f elasticsearch.yml ]; then
+#    sudo wget https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Monitor/elasticsearch.yml
+#fi
 if [ ! -f filebeat.yml ]; then
     sudo wget https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Front/filebeat.yml
 fi
@@ -34,9 +34,9 @@ if [ ! -f logstash-nginx.conf ]; then
 fi
 
 # копируем в нужные папки, если файлы существуют
-if [ -f elasticsearch.yml ]; then
-    sudo cp elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
-fi
+#if [ -f elasticsearch.yml ]; then
+#    sudo cp elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
+#fi
 if [ -f filebeat.yml ]; then
     sudo cp filebeat.yml /etc/filebeat/filebeat.yml
 fi
