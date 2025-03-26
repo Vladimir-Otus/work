@@ -5,7 +5,7 @@ sudo apt update
 sudo apt install -y default-jdk
 
 # Установка Elasticsearch (предполагаем, что .deb файл уже скачан)
-sudo dpkg -i elasticsearch.deb
+sudo dpkg -i elasticsearch_8.9.1_amd64-224190-f79e75.deb
 sudo apt-get install -f -y
 
 # Простая настройка памяти
