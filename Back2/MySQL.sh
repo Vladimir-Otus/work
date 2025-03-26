@@ -9,13 +9,13 @@ sudo wget https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/B
 sudo service mysql restart
 
 # Остановка текущей репликации (если она была настроена)
-mysql -u root -e "STOP REPLICA;"
+sudo mysql -u root -e "STOP REPLICA;"
 
 # Настройка мастера для репликации
-mysql -u root -e "CHANGE REPLICATION SOURCE TO SOURCE_HOST='192.168.8.131', SOURCE_USER='repl', SOURCE_PASSWORD='oTUSlave#2020', SOURCE_AUTO_POSITION = 1, GET_SOURCE_PUBLIC_KEY = 1;"
+sudo mysql -u root -e "CHANGE REPLICATION SOURCE TO SOURCE_HOST='192.168.8.131', SOURCE_USER='repl', SOURCE_PASSWORD='oTUSlave#2020', SOURCE_AUTO_POSITION = 1, GET_SOURCE_PUBLIC_KEY = 1;"
 
 # Запуск репликации
-mysql -u root -e "START REPLICA;"
+sudo mysql -u root -e "START REPLICA;"
 
 # Проверка статуса репликации
-mysql -u root -e "SHOW REPLICA STATUS\G;"
+sudo mysql -u root -e "SHOW REPLICA STATUS\G;"
