@@ -9,10 +9,10 @@ sudo wget https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/B
 sudo service mysql restart
 
 # Создание пользователя для репликации
-mysql -u root -e "CREATE USER repl@'%' IDENTIFIED WITH 'caching_sha2_password' BY 'oTUSlave#2020';"
+sudo mysql -u root -e "CREATE USER repl@'%' IDENTIFIED WITH 'caching_sha2_password' BY 'oTUSlave#2020';"
 
 # Предоставление прав на репликацию
-mysql -u root -e "GRANT REPLICATION SLAVE ON *.* TO repl@'%';"
+sudo mysql -u root -e "GRANT REPLICATION SLAVE ON *.* TO repl@'%';"
 
 # Проверка логов на наличие ошибок
 sudo tail -n 50 /var/log/mysql/error.log | grep -i error
