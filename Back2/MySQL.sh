@@ -12,7 +12,7 @@ sudo service mysql restart
 mysql -u root -e "STOP REPLICA;"
 
 # Настройка мастера для репликации
-mysql -u root -e "CHANGE REPLICATION SOURCE TO SOURCE_HOST='172.16.10.110', SOURCE_USER='repl', SOURCE_PASSWORD='oTUSlave#2020', SOURCE_AUTO_POSITION = 1, GET_SOURCE_PUBLIC_KEY = 1;"
+mysql -u root -e "CHANGE REPLICATION SOURCE TO SOURCE_HOST='192.168.8.131', SOURCE_USER='repl', SOURCE_PASSWORD='oTUSlave#2020', SOURCE_AUTO_POSITION = 1, GET_SOURCE_PUBLIC_KEY = 1;"
 
 # Запуск репликации
 mysql -u root -e "START REPLICA;"
