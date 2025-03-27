@@ -174,7 +174,7 @@ setup.template.settings:
   #ssl.key: "/etc/pki/client/cert.key"
 
 output.logstash:
-  hosts: ["localhost:5400"]
+  hosts: ["192.168.8.133:5400"]
 
 # ================================= Processors =================================
 processors:
