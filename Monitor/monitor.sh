@@ -3,25 +3,32 @@ apt install prometheus -y
 wget https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Monitor/prometheus.yml
 cp prometheus.yml /etc/prometheus/prometheus.yml;
 
-#Grafana installation
-scp -r vt@192.168.8.133:/home/vt/Distr/*.deb /home/vt/
-sleep 3;
-sudo apt-get install -y adduser libfontconfig1 musl
-sudo dpkg -i grafana_11.4.0_amd64.deb
-
-#Starting Grafana
-systemctl daemon-reload;
-echo "Starting Grafana"
-systemctl start grafana-server
-
 ### Java installation
 apt install default-jdk -y;
 
-### Debs for ELK installation
-dpkg -i *.deb;
+### Grafana installation
+apt-get install -y adduser libfontconfig1 musl
+scp -o ConnectTimeout=10 vt@192.168.8.134:/home/vt/Distr/grafana_11.4.0_amd64.deb /home/vt/
+dpkg -i /home/vt/grafana_11.4.0_amd64.deb || apt-get install -f -y
+systemctl daemon-reload
+systemctl start grafana-server
+systemctl enable grafana-server
 
-### Limits
-echo -e "-Xms1g\n-Xmx1g" | sudo cat > /etc/elasticsearch/jvm.options.d/jvm.options;
+### ELK packages copy
+scp -o ConnectTimeout=10 vt@192.168.8.134:/home/vt/Distr/filebeat_8.9.1_amd64*.deb /home/vt/
+scp -o ConnectTimeout=10 vt@192.168.8.134:/home/vt/Distr/elasticsearch_8.9.1_amd64*.deb /home/vt/
+scp -o ConnectTimeout=10 vt@192.168.8.134:/home/vt/Distr/kibana_8.9.1_amd64*.deb /home/vt/
+scp -o ConnectTimeout=10 vt@192.168.8.134:/home/vt/Distr/logstash_8.9.1_amd64*.deb /home/vt/
+
+### ELK installation
+dpkg -i /home/vt/elasticsearch_8.9.1_amd64*.deb || apt-get install -f -y
+dpkg -i /home/vt/logstash_8.9.1_amd64*.deb || apt-get install -f -y
+dpkg -i /home/vt/kibana_8.9.1_amd64*.deb || apt-get install -f -y
+dpkg -i /home/vt/filebeat_8.9.1_amd64*.deb || apt-get install -f -y
+
+### Configure JVM options
+mkdir -p /etc/elasticsearch/jvm.options.d
+echo -e "-Xms1g\n-Xmx1g" > /etc/elasticsearch/jvm.options.d/jvm.options
 
 ### Download configs
 wget https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Monitor/elasticsearch.yml;
@@ -39,6 +46,9 @@ cp kibana.yml /etc/kibana/kibana.yml;
 cp logstash.yml /etc/logstash/logstash.yml;
 cp logstash-nginx-es.conf /etc/logstash/conf.d/logstash-nginx-es.conf;
 
+### Set proper permissions
+chown elasticsearch:elasticsearch /etc/elasticsearch/elasticsearch.yml
+chown logstash:logstash /etc/logstash/logstash.yml
 
 ### Starting ELK
 systemctl daemon-reload;
