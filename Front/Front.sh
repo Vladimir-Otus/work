@@ -13,7 +13,7 @@ systemctl restart nginx;
 sleep 5;
 
 ###Filebeat installation
-scp -r alex@192.168.8.134:/home/vt/Distr/filebeat_8.9.1_amd64-224190-bc3f59.deb /home/vt/
+scp -r vt@192.168.8.134:/home/vt/Distr/filebeat_8.9.1_amd64-224190-bc3f59.deb /home/vt/
 
 dpkg -i filebeat_8.9.1_amd64-224190-bc3f59.deb
 
