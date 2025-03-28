@@ -51,15 +51,6 @@ cp logstash-nginx-es.conf /etc/logstash/conf.d/logstash-nginx-es.conf;
 #chown logstash:logstash /etc/logstash/logstash.yml
 
 ### Starting ELK
-systemctl daemon-reload;
-systemctl enable --now elasticsearch.service;
-systemctl daemon-reload;
-systemctl enable --now kibana.service;
-systemctl enable --now logstash.service;
-systemctl restart logstash.service;
-systemctl restart filebeat;
-systemctl enable filebeat;
-systemctl restart kibana;
-systemctl restart logstash;
-systemctl restart elasticsearch;
-systemctl restart prometheus;
+systemctl daemon-reload
+systemctl enable --now elasticsearch kibana logstash filebeat prometheus
+systemctl restart elasticsearch kibana logstash filebeat prometheus
