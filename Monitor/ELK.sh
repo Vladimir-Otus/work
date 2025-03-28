@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Установка hostname
-sudo hostnamectl set-hostname ELK-Grafana
-sudo sed -i "s/^127.0.1.1 .*/127.0.1.1 ELK-Grafana/" /etc/hosts
-echo "Hostname изменен на: $(hostname)"
+# sudo hostnamectl set-hostname ELK-Grafana
+# sudo sed -i "s/^127.0.1.1 .*/127.0.1.1 ELK-Grafana/" /etc/hosts
+# echo "Hostname изменен на: $(hostname)"
 
 # Установка JDK
 sudo apt update
