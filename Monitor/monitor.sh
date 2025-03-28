@@ -9,7 +9,7 @@ apt install default-jdk -y;
 ### Grafana installation
 apt-get install -y adduser libfontconfig1 musl
 scp -o ConnectTimeout=10 vt@192.168.8.134:/home/vt/Distr/grafana_11.4.0_amd64.deb /home/vt/
-dpkg -i /home/vt/grafana_11.4.0_amd64.deb || apt-get install -f -y
+dpkg -i /home/vt/grafana_11.4.0_amd64.deb
 systemctl daemon-reload
 systemctl start grafana-server
 systemctl enable grafana-server
@@ -21,13 +21,13 @@ scp -o ConnectTimeout=10 vt@192.168.8.134:/home/vt/Distr/kibana_8.9.1_amd64*.deb
 scp -o ConnectTimeout=10 vt@192.168.8.134:/home/vt/Distr/logstash_8.9.1_amd64*.deb /home/vt/
 
 ### ELK installation
-dpkg -i /home/vt/elasticsearch_8.9.1_amd64*.deb || apt-get install -f -y
-dpkg -i /home/vt/logstash_8.9.1_amd64*.deb || apt-get install -f -y
-dpkg -i /home/vt/kibana_8.9.1_amd64*.deb || apt-get install -f -y
-dpkg -i /home/vt/filebeat_8.9.1_amd64*.deb || apt-get install -f -y
+dpkg -i /home/vt/elasticsearch_8.9.1_amd64*.deb
+dpkg -i /home/vt/logstash_8.9.1_amd64*.deb
+dpkg -i /home/vt/kibana_8.9.1_amd64*.deb
+dpkg -i /home/vt/filebeat_8.9.1_amd64*.deb
 
 ### Configure JVM options
-mkdir -p /etc/elasticsearch/jvm.options.d
+# mkdir -p /etc/elasticsearch/jvm.options.d
 echo -e "-Xms1g\n-Xmx1g" > /etc/elasticsearch/jvm.options.d/jvm.options
 
 ### Download configs
@@ -47,8 +47,8 @@ cp logstash.yml /etc/logstash/logstash.yml;
 cp logstash-nginx-es.conf /etc/logstash/conf.d/logstash-nginx-es.conf;
 
 ### Set proper permissions
-chown elasticsearch:elasticsearch /etc/elasticsearch/elasticsearch.yml
-chown logstash:logstash /etc/logstash/logstash.yml
+#chown elasticsearch:elasticsearch /etc/elasticsearch/elasticsearch.yml
+#chown logstash:logstash /etc/logstash/logstash.yml
 
 ### Starting ELK
 systemctl daemon-reload;
