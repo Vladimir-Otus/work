@@ -54,8 +54,8 @@ filebeat.inputs:
   #  level: debug
   #  review: 1
 
-
-#filebeat.inputs:
+##########################################
+filebeat.inputs:
 - type: filestream
   paths:
     - /var/log/nginx/*.log
@@ -115,7 +115,7 @@ setup.template.settings:
 
 # Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
 # This requires a Kibana endpoint configuration.
-#setup.kibana:
+setup.kibana:
 
   # Kibana Host
   # Scheme and port can be left out and will be set to the default (http and 5601)
@@ -159,6 +159,11 @@ setup.template.settings:
   #password: "changeme"
 
 # ------------------------------ Logstash Output -------------------------------
+
+output.logstash:
+  hosts: ["192.168.8.133:5400"]
+###########################################
+
 #output.logstash:
   # The Logstash hosts
   #hosts: ["localhost:5044"]
@@ -172,9 +177,6 @@ setup.template.settings:
 
   # Client Certificate Key
   #ssl.key: "/etc/pki/client/cert.key"
-
-output.logstash:
-  hosts: ["192.168.8.133:5400"]
 
 # ================================= Processors =================================
 processors:
@@ -243,3 +245,4 @@ processors:
 
 # This allows to enable 6.7 migration aliases
 #migration.6_to_7.enabled: true
+
