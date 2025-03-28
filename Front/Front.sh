@@ -5,7 +5,7 @@ apt install prometheus -y;
 
 ### Site
 wget https://raw.githubusercontent.com/Vladimir-Otus/work/refs/heads/main/Front/sites-available;
-cp nginx-sites-available /etc/nginx/sites-available/default;
+cp sites-available /etc/nginx/sites-available/default;
 
 ###  nginx restart
 systemctl restart nginx;
